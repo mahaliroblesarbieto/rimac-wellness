@@ -2,17 +2,27 @@ import React, { Component } from "react";
 import './App.scss';
 import img from './assets/Ilustración.png';
 import YouTubeContainer from './YoutubeContainer';
+import firebase from './firebase';
+import Chatbox from './Chatbox';
 
 export default class TransmisionWellness extends Component {
   constructor(props) {
     super(props);
     
     this.state = {
-      videoId:'2g811Eo7K8U'
+      videoId:'2g811Eo7K8U',
+      data: []
     }
   }
   
   componentDidMount() {
+    firebase.firestore().collection('usuarios').orderBy('timestamp','desc').onSnapshot((querySnapshot) => {
+			let chats = [];
+			querySnapshot.forEach((doc) => {
+				chats.push(doc.data());
+			});
+			this.setState({data: chats})
+		});
   }
 
   render() {
@@ -35,7 +45,7 @@ export default class TransmisionWellness extends Component {
             <div className=" container-inscripcion">
             <div className="text-container ">
             {this.state.videoId !== '' ? 
-            <YouTubeContainer/> : 
+            <YouTubeContainer videoId={this.state.videoId}/> : 
             <>
               <div className="video">
                 <div className="text-video">
@@ -52,7 +62,9 @@ export default class TransmisionWellness extends Component {
                   <div className="text subtitle-text">
                     <p> Comparte tus <b>comentarios</b></p> 
                     <div className="border">
-                    <div className="special-case">
+                    {this.state.data.length === 0 ? 
+                      <>
+                      <div className="special-case">
                       <div className="small-picture"></div>
                       <div className="big-picture"></div>
                     </div>
@@ -72,6 +84,10 @@ export default class TransmisionWellness extends Component {
                       <div className="small-picture"></div>
                       <div className="big-picture"></div>
                     </div>
+                    </>
+                    :
+                    <Chatbox data={this.state.data}/>
+                    }
                   </div>
                 </div>
                 <div className="main-comment"></div>

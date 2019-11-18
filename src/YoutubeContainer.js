@@ -16,7 +16,7 @@ class YouTubeContainer extends React.Component {
  
     return (
       <YouTube
-        videoId="2g811Eo7K8U"
+        videoId={this.props.videoId}
         opts={opts}
         className={"video-width"} 
         onReady={this._onReady}

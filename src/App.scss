@@ -203,6 +203,15 @@
 
     }
 
+    .video-width{
+      width: 296px;
+      height: 192px;
+      @include media (desktop) {
+        width: 672px;
+        height: 436px;
+      }
+    }
+
     .video {
       height: 212px;
       background: #F7F8FC;
@@ -210,6 +219,8 @@
       box-sizing: border-box;
       border-radius: 8px;
       padding-left: 83px;
+
+      
 
       @include media (desktop) {
         padding-left: 241px;

@@ -1,0 +1,39 @@
+//Width column
+@function col($columns, $total) {
+    @return (100% / $total) * $columns;
+}
+
+// Mobile Breakpoints
+$mobile-screen: 280px;
+$small-screen:  425px;
+$medium-screen: 1023px;
+$large-screen: 1744px;
+
+@mixin media($types...) {
+    @each $type in $types {
+      @if $type == mobile {
+        @media only screen and (min-width: $mobile-screen + 1) and (max-width: $small-screen) {
+          @content;
+        }
+      }
+
+      @if $type == tablet {
+        @media only screen and (min-width: $small-screen + 1) {
+          @content;
+        }
+      }
+  
+      @if $type == desktop {
+        @media only screen and (min-width: $medium-screen + 1) {
+          @content;
+        }
+      }
+
+      @if $type == desktopLarge {
+        @media only screen and (min-width: $large-screen + 1) {
+          @content;
+        }
+      }
+    }
+  }
+

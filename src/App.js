@@ -10,7 +10,7 @@ export default class TransmisionWellness extends Component {
     super(props);
     
     this.state = {
-      videoId:'2g811Eo7K8U',
+      videoId:'Q3DNrXICDgE',
       data: [],
       message: '',
     }
@@ -69,7 +69,7 @@ export default class TransmisionWellness extends Component {
             <div className=" container-inscripcion">
             <div className="text-container ">
             {this.state.videoId !== '' ? 
-            <YouTubeContainer videoId={this.state.videoId}/> : 
+            <YouTubeContainer id={this.state.videoId}/> : 
             <>
               <div className="video">
                 <div className="text-video">

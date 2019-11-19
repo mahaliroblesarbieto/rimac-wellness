@@ -8,6 +8,10 @@
   margin-left: auto;
   margin-right: auto;
 
+  input:focus{
+    outline: 0;
+  }
+
   .error-message {
     font-family: "Roboto", sans-serif;
     margin-top: 6px;
@@ -471,6 +475,9 @@
     .input-comment{
       border: none;
       width: 100%;
+      font-family: Lato;
+    font-size: 14px;
+    color: #676F8F;
     }
 
     .main-comment {

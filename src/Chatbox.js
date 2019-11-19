@@ -1,5 +1,5 @@
 import React from 'react';
-import firebase from '../../firebase';
+import firebase from './firebase';
 
 class Chatbox extends React.Component {
 	constructor(props) {
@@ -12,17 +12,17 @@ class Chatbox extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<ul>
+			<div className="padding-comments">
+				
 					{ this.props.data.map(chat => {
 						return (
-							<li key={chat.id}>
-								<strong>{chat.user}:</strong>
+							<div className="one-comment" key={chat.id}>
+								<strong>{chat.user}: </strong>
 								{chat.message}
-							</li>
+							</div>
 						);
 					}) }
-				</ul>
+			
 			</div>
 		);
 	}

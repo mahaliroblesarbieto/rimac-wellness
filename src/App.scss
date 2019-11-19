@@ -15,6 +15,10 @@
     color: #ff888d;
   }
 
+  .one-comment {
+    padding:0;
+  }
+
 
 
   @include media(desktop) {
@@ -262,6 +266,7 @@
       border: 3px solid #F0F2FA;
       box-sizing: border-box;
       border-radius: 8px;
+      position: relative;
     }
 
     .container-inscripcion {
@@ -459,13 +464,26 @@
       }
     }
 
+    .padding-comments{
+      padding-top: 24px;
+    }
+
+    .input-comment{
+      border: none;
+      width: 100%;
+    }
+
     .main-comment {
-      background: #F0F2FA;
-      border: 3px solid #F0F2FA;
+      background: none;
+      padding:24px;
+      border-top: 3px solid #F0F2FA;
       box-sizing: border-box;
       border-bottom-right-radius: 8px;
       border-bottom-left-radius: 8px;
       height: 56px;
+      position: absolute;
+      bottom:0;
+      width: 100%;
     }
 
     @include media (desktop) {
